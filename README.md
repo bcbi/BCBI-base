@@ -9,6 +9,21 @@ cd BCBI-base
 julia --project install.jl
 ```
 
+## Creating custom environments
+
+It is easy to create custom environments that contain any combination of packages.
+```bash
+mkdir my_environment_name
+cd my_environmnent_name
+touch Project.toml
+julia —-project
+```
+Now that you are in Julia, you can add the specific combination of packages that you want. For example, the following commands will add `DecisionTree`, `GLM`, and `PredictMD` to your environment:
+```julia
+import Pkg
+Pkg.add([“DecisionTree”, “GLM”, “PredictMD”,])
+```
+
 ## Troubleshooting
 
 If you encounter an error, try running the following two lines:
