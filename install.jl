@@ -23,6 +23,7 @@ end
 required_environment_list = [
     ["environments", "datasets",],
     ["environments", "interop",],
+    ["environments", "interop-seaborn",],
     ["environments", "plotting",],
     ["environments", "predictmd",],
     ]

@@ -12,7 +12,6 @@ branches:
 env:
     global:
         - JULIA_DEBUG="all"
-        - R_HOME="*"
 
 git:
     depth: 99999999
@@ -37,8 +36,7 @@ os:
 
 script:
     - set -ev
-    - julia --project clean.jl
-    - julia --project install.jl
-    - julia --project clean.jl
+    - julia --project -e 'ENV["PYTHON"]=""; ENV["R_HOME"]="*"; include("install.jl")'
+    - if [ "$TRAVIS_OS_NAME" = "linux" ]; then julia --project clean.jl ; fi
 
 ##### End of file
