@@ -11,7 +11,9 @@ if Base.VERSION >= VersionNumber("1.1")
     Pkg.Registry.update()
 end
 
-Pkg.activate(joinpath(dirname(@__FILE__)))
+root = joinpath(dirname(@__FILE__))
+@info("Updating required environment at $(root)")
+Pkg.activate(root)
 Pkg.instantiate()
 Pkg.update()
 if Base.VERSION >= VersionNumber("1.3")
@@ -33,7 +35,9 @@ optional_environment_list = [
     ]
 
 for environment in required_environment_list
-    Pkg.activate(joinpath(dirname(@__FILE__), environment...))
+    location = joinpath(dirname(@__FILE__), environment...)
+    @info("Updating required environment at $(location)")
+    Pkg.activate(location)
     Pkg.instantiate()
     Pkg.update()
     if Base.VERSION >= VersionNumber("1.3")
@@ -44,7 +48,9 @@ for environment in required_environment_list
 end
 
 for environment in optional_environment_list
-    Pkg.activate(joinpath(dirname(@__FILE__), environment...))
+    location = joinpath(dirname(@__FILE__), environment...)
+    @info("Updating optional environment at $(location)")
+    Pkg.activate(location)
     try
         Pkg.instantiate()
     catch ex
