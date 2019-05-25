@@ -17,7 +17,6 @@ git:
     depth: 99999999
 
 julia:
-    - "1.0"
     - "1.1"
 
 language: julia
@@ -36,8 +35,7 @@ os:
 
 script:
     - set -ev
-    - julia --project clean.jl
-    - julia --project install.jl
+    - julia --project -e 'ENV["PYTHON"]=""; ENV["R_HOME"]="*"; include("install.jl")'
     - julia --project clean.jl
 
 ##### End of file
