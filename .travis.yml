@@ -35,7 +35,7 @@ os:
 
 script:
     - set -ev
-    - julia --project -e 'ENV["PYTHON"]=""; ENV["R_HOME"]="*"; include("install.jl")'
+    - julia --project -e 'ENV["PYTHON"]=""; ENV["R_HOME"]="*"; include("default-environment.jl"); include("install.jl")'
     - julia --project clean.jl
 
 ##### End of file
