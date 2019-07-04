@@ -1,5 +1,6 @@
 # BCBI-base: Julia packages commonly used by the Brown Center for Biomedical Informatics (BCBI)
 
+[![Bors enabled](https://bors.tech/images/badge_small.svg)](https://app.bors.tech/repositories/12341)
 [![Build Status](https://travis-ci.org/bcbi/BCBI-base.svg?branch=master)](https://travis-ci.org/bcbi/BCBI-base/branches)
 
 ## Usage
